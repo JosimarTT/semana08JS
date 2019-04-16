@@ -3,6 +3,12 @@ var app = express();
 app.set('view engine', 'jade');
 const fs = require('fs');
 
+
+var bodyParser = require('body-parser'); 
+app.use(bodyParser.json()); // to support JSON bodies
+app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
+
+
 app.use(express.static('public'));
 
 app.use(express.urlencoded({
@@ -62,7 +68,7 @@ app.post('/calcular', function (req, res) {
     let curso = req.body.curso;
     let credito = req.body.credito;
     let efectivo = req.body.efectivo;
-
+    metodoPago = req.body.metodoPago;
     let costo = 0;
     let descuento = 0;
     if (curso == 'java') {
@@ -96,14 +102,8 @@ app.post('/calcular', function (req, res) {
             htmlString = htmlString.replace('{avanzado}', " ");
         }
         costo = costo*cont;
-        if (efectivo !== undefined){
+        if (metodoPago === 'efectivo'){
             descuento = costo*0.1;
-        }
-        let metodoPago = "";
-        if (efectivo !== undefined) {
-            metodoPago = efectivo;
-        } else {
-            metodoPago = credito;
         }
         let costoFinal = costo - descuento;
         htmlString = htmlString.replace('{curso}', curso);
@@ -115,7 +115,6 @@ app.post('/calcular', function (req, res) {
         res.write(htmlString);
         res.end();
     });
- //  res.send("Total es" + basico +" "+pago);
 });
 
 
