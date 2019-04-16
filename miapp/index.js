@@ -60,7 +60,8 @@ app.post('/calcular', function (req, res) {
     let intermedio = req.body.intermedio;
     let avanzado = req.body.avanzado;
     let curso = req.body.curso;
-    let metodoPago = req.body.metodoPago;
+    let credito = req.body.credito;
+    let efectivo = req.body.efectivo;
 
     let costo = 0;
     let descuento = 0;
@@ -95,8 +96,14 @@ app.post('/calcular', function (req, res) {
             htmlString = htmlString.replace('{avanzado}', " ");
         }
         costo = costo*cont;
-        if (metodoPago = 'efectivo'){
+        if (efectivo !== undefined){
             descuento = costo*0.1;
+        }
+        let metodoPago = "";
+        if (efectivo !== undefined) {
+            metodoPago = efectivo;
+        } else {
+            metodoPago = credito;
         }
         let costoFinal = costo - descuento;
         htmlString = htmlString.replace('{curso}', curso);
