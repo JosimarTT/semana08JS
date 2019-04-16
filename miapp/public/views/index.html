@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>FormWizard_v4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="../fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="../vendor/date-picker/css/datepicker.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="image-holder">
+            <img src="../images/form-wizard.png" alt="">
+        </div>
+        <form action="/calcular" method="POST">
+            <div class="form-header">
+                <a href="#">#Academic Programs</a>
+                <h3>Register for the course online</h3>
+            </div>
+            <div id="wizard">
+                <!-- SECTION 1 -->
+                <h4></h4>
+                <section>
+                    <div class="form-row" style="margin-bottom: 26px;">
+                        <label for="">
+                            Seleccione un curso
+                        </label>
+                        <div class="form-holder">
+                            <select name="curso" id="" class="form-control">
+                                <option value="java" class="option">JAVA</option>
+                                <option value="php" class="option">PHP</option>
+                                <option value="net" class="option">.NET</option>
+                            </select>
+                            <i class="zmdi zmdi-caret-down"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 2 -->
+                <h4></h4>
+                <section>
+                    <div class="form-row" style="margin-bottom: 50px;">
+                        <label for="">
+                            Seleccione los módulos que desea llevar:
+                        </label>
+                        <div class="form-holder">
+                            <div class="checkbox-circle">
+                                <label class="basico">
+                                    <input type="checkbox" name="basico" value="basico" checked> Básico<br>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="intermedio">
+                                    <input type="checkbox" name="intermedio" value="intermedio"> Intermedio<br>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="avanzado" value="avanzado">Avanzado<br>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 3 -->
+                <h4></h4>
+                <section>
+                    <div class="form-row" style="margin-bottom: 50px;">
+                        <label for="">
+                            Seleccione el método de pago:
+                        </label>
+                        <div class="form-holder">
+                            <div class="checkbox-circle">
+                                <label class="credito">
+                                    <input type="radio" name="pago" value="credito" checked> Crédito<br>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="efectivo">
+                                    <input type="radio" name="pago" value="efectivo"> Efectivo<br>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 4 -->
+                <h4></h4>
+                <section>
+                    <div class="form-row">
+                        <label for="">
+                            Course ID:
+                        </label>
+                        <div class="form-holder">
+                            <input type="text" class="form-control" placeholder="Ex. abc 12345 or abc 1234L">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label for="">
+                            Course Title:
+                        </label>
+                        <div class="form-holder">
+                            <input type="text" class="form-control" placeholder="Ex. Intro to physic">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label for="">
+                            Section(s):
+                        </label>
+                        <div class="form-holder">
+                            <input type="text" class="form-control" placeholder="Ex. 3679 or 33fa, 4295">
+                        </div>
+                    </div>
+                    <div class="form-row" style="margin-bottom: 38px">
+                        <label for="">
+                            Select Teacher:
+                        </label>
+                        <div class="form-holder">
+                            <select name="" id="" class="form-control">
+                                <option value="frances meyer" class="option">Frances Meyer</option>
+                                <option value="johan lucas" class="option">Johan Lucas</option>
+                                <option value="merry linn" class="option">Merry Linn</option>
+                            </select>
+                            <i class="zmdi zmdi-caret-down"></i>
+                        </div>
+                    </div>
+                    <div class="checkbox-circle" style="margin-bottom: 48px;">
+                        <label>
+                            <input type="checkbox" checked>I agree all statement in Terms & Conditions
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </section>
+            </div>
+            <button type="submit">Calcular</button>
+        </form>
+        
+    </div>
+
+    <script src="../javascripts/jquery-3.3.1.min.js"></script>
+
+    <!-- JQUERY STEP -->
+    <script src="../javascripts/jquery.steps.js"></script>
+
+    <!-- DATE-PICKER -->
+    <script src="../vendor/date-picker/js/datepicker.js"></script>
+    <script src="../vendor/date-picker/js/datepicker.en.js"></script>
+
+    <script src="../javascripts/main.js"></script>
+    <!-- Template created and distributed by Colorlib -->
+</body>
+
+</html>
