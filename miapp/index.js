@@ -60,9 +60,10 @@ app.post('/calcular', function (req, res) {
     let intermedio = req.body.intermedio;
     let avanzado = req.body.avanzado;
     let curso = req.body.curso;
-    let pago = req.body.pago;
+    let metodoPago = req.body.metodoPago;
 
     let costo = 0;
+    let descuento = 0;
     if (curso == 'java') {
         costo = 1200;
     } else if (curso == 'php'){
@@ -70,29 +71,39 @@ app.post('/calcular', function (req, res) {
     } else {
         costo = 1500;
     }
-    if (pago = 'efectivo'){
-        costo = costo*0.9;
-    }
+
     
     fs.readFile('./public/views/resultado.html', (err, html) => {
         let htmlString = html.toString();
-        console.log(basico);
+        cont = 0;
         if (basico !== undefined) {
             htmlString = htmlString.replace('{basico}', basico);
+            cont++;
         } else {
             htmlString = htmlString.replace('{basico}', " ");
         }
         if (intermedio !== undefined) {
             htmlString = htmlString.replace('{intermedio}', intermedio);
+            cont++;
         } else {
             htmlString = htmlString.replace('{intermedio}', " ");
         }
         if (avanzado !== undefined) {
             htmlString = htmlString.replace('{avanzado}', avanzado);
+            cont++;
         } else {
             htmlString = htmlString.replace('{avanzado}', " ");
         }
+        costo = costo*cont;
+        if (metodoPago = 'efectivo'){
+            descuento = costo*0.1;
+        }
+        let costoFinal = costo - descuento;
         htmlString = htmlString.replace('{curso}', curso);
+        htmlString = htmlString.replace('{metodoPago}', metodoPago);
+        htmlString = htmlString.replace('{costo}', costo);
+        htmlString = htmlString.replace('{descuento}', descuento);
+        htmlString = htmlString.replace('{costoFinal}', costoFinal);
         res.writeHead(200, { 'Content-type': 'text' });
         res.write(htmlString);
         res.end();

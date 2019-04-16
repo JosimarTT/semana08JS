@@ -19,12 +19,6 @@
 
 <body>
 
-    <div id="">
-            <span id="resultado">{basico}</span>
-            <span id="resultado">{intermedio}</span>
-            <span id="resultado">{avanzado}</span>
-<span>{}</span>
-    </div>
     <div class="wrapper">
         <div class="image-holder">
             <img src="../images/form-wizard.png" alt="">
@@ -32,7 +26,7 @@
         <form action="/calcular" method="POST">
             <div class="form-header">
                 <a href="#">#Academic Programs</a>
-                <h3>Register for the course online</h3>
+                <h3>Resumen de pago</h3>
             </div>
             <div id="wizard">
                 <h4></h4>
@@ -47,39 +41,44 @@
                     </div>
                     <div class="form-row">
                         <label for="">
-                            Course Title:
+                            Niveles escogidos:
                         </label>
                         <div class="form-holder">
-                            <input type="text" class="form-control" placeholder="Ex. Intro to physic">
+                                <span type="text" class="form-control">{basico} {intermedio} {avanzado}</span>
                         </div>
                     </div>
                     <div class="form-row">
                         <label for="">
-                            Section(s):
+                            Tipo de pago:
                         </label>
                         <div class="form-holder">
-                            <input type="text" class="form-control" placeholder="Ex. 3679 or 33fa, 4295">
+                                <span type="text" class="form-control">{metodoPago}</span>
                         </div>
                     </div>
-                    <div class="form-row" style="margin-bottom: 38px">
-                        <label for="">
-                            Select Teacher:
-                        </label>
-                        <div class="form-holder">
-                            <select name="" id="" class="form-control">
-                                <option value="frances meyer" class="option">Frances Meyer</option>
-                                <option value="johan lucas" class="option">Johan Lucas</option>
-                                <option value="merry linn" class="option">Merry Linn</option>
-                            </select>
-                            <i class="zmdi zmdi-caret-down"></i>
+                    <div class="form-row">
+                            <label for="">
+                                Costo:
+                            </label>
+                            <div class="form-holder">
+                                    <span type="text" class="form-control">{costo}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="checkbox-circle" style="margin-bottom: 48px;">
-                        <label>
-                            <input type="checkbox" checked>I agree all statement in Terms & Conditions
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
+                    <div class="form-row">
+                            <label for="">
+                                Descuento:
+                            </label>
+                            <div class="form-holder">
+                                    <span type="text" class="form-control">{descuento}</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                                <label for="">
+                                    Costo final:
+                                </label>
+                                <div class="form-holder">
+                                        <span type="text" class="form-control">{costoFinal}</span>
+                                </div>
+                            </div>
                 </section>
             </div>
         </form>
