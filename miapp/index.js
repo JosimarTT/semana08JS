@@ -66,8 +66,6 @@ app.post('/calcular', function (req, res) {
     let intermedio = req.body.intermedio;
     let avanzado = req.body.avanzado;
     let curso = req.body.curso;
-    let credito = req.body.credito;
-    let efectivo = req.body.efectivo;
     metodoPago = req.body.metodoPago;
     let costo = 0;
     let descuento = 0;
@@ -136,6 +134,6 @@ app.use(function (err, req, res, next) {
     res.status(500).send('Algo salio mal!');
 });
 
-app.listen(3000, function () {
+app.listen(4000, function () {
     console.log('Aplicacion de ejemplo escuchando en el puerto 3000!');
 });
